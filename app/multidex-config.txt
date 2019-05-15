@@ -1,0 +1,2 @@
+com/lyt/fix/BaseApplication.class
+com/lyt/fix/MainActivity.class
