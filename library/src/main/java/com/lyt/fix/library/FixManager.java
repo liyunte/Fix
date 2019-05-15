@@ -14,6 +14,18 @@ import java.util.HashSet;
 import dalvik.system.DexClassLoader;
 import dalvik.system.PathClassLoader;
 
+/**
+ * dex热修复
+ * 使用步骤：
+ * 1 Application.onCreate()方法中调用FixManager.getInstance().loadFixedDex(context);
+ * 2 根据app当前版本号和已修复过的dex版本号（double类型，默认1.0） 查询服务器上是否有修复好的dex文件
+ * 3 下载dex文件  保存到getDexDir()方法返回的目录下（若此目录下存在了同名的dex文件，则删除旧的dex）
+ * 4 调用addDex(context,filename)拷贝到私有目录下
+ * 5 调用loadFixedDex(context)执行修复
+ *
+ */
+
+
 public class FixManager {
 
     //需要复制的dex
